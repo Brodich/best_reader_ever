@@ -2,7 +2,7 @@ from datetime import datetime
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from db.base import MappedBase
+from src.db.postgres import MappedBase
 
 
 class UserProgress(MappedBase):

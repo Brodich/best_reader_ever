@@ -4,6 +4,8 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
+from src.db.postgres import MappedBase
+
 
 from src.api.v1.user.model.user import User
 from src.api.v1.user.model.user_progress import UserProgress
@@ -11,7 +13,6 @@ from src.api.v1.book.model.book import Book
 from src.api.v1.book.model.page import Page
 from src.api.v1.book.model.question import Question
 
-from db.meta import meta
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -30,7 +31,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = meta
+target_metadata = MappedBase.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

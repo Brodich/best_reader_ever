@@ -1,4 +1,10 @@
-class Page(Base):
+from datetime import datetime
+from sqlalchemy import Integer, String, Text, ForeignKey, DateTime
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from src.db.postgres import MappedBase
+
+
+class Page(MappedBase):
     __tablename__ = "pages"
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -8,4 +14,3 @@ class Page(Base):
 
     book: Mapped["Book"] = relationship(back_populates="pages")
     questions: Mapped[list["Question"]] = relationship(back_populates="page")
-

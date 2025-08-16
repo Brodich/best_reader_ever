@@ -1,4 +1,10 @@
-class Question(Base):
+from datetime import datetime
+from sqlalchemy import Integer, String, Text, ForeignKey, DateTime
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from src.db.postgres import MappedBase
+
+
+class Question(MappedBase):
     __tablename__ = "questions"
 
     id: Mapped[int] = mapped_column(primary_key=True)

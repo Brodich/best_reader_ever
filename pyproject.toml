@@ -6,7 +6,7 @@ authors = [
     {name = "sensordo",email = "toha1313@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.13, <4.0"
+requires-python = ">=3.11, <4.0"
 dependencies = [
     "uvicorn (>=0.35.0,<0.36.0)",
     "fastapi (>=0.116.1,<0.117.0)",
@@ -15,7 +15,7 @@ dependencies = [
     "sqlalchemy (>=2.0.43,<3.0.0)",
     "python-multipart (>=0.0.20,<0.0.21)",
     "asyncpg (>=0.30.0,<0.31.0)",
-    "alembic (>=1.16.4,<2.0.0)"
+    "alembic (>=1.16.4,<2.0.0)",
 ]
 
 

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
-from src.api.v1.user.schema.user import UserRead
-from src.api.v1.user.service.user import user_service
+from src.db.postgres import CurrentSession
+from src.api.v1.user.schema.user import UserRead, UserCreate
+from src.api.v1.user.service.user import UserService
 
 router = APIRouter(
     prefix="/user",
@@ -12,5 +13,19 @@ router = APIRouter(
     "",
     response_model=UserRead,
 )
-async def get_user():
-    return await user_service.get_user()
+async def get_user(
+    session: CurrentSession,
+    user_id: str = "test",
+):
+    return await UserService(session).get_user(user_id)
+
+
+@router.post(
+    "",
+    response_model=UserRead,
+)
+async def create_user(
+    user: UserCreate,
+    session: CurrentSession,
+):
+    return await UserService(session).create_user(user)
