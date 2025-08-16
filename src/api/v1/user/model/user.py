@@ -1,10 +1,7 @@
-from datetime import datetime
-
-# from uuid import UUID
 from sqlalchemy import UUID
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from api.db.base import MappedBase
+from src.db.base import MappedBase
 
 
 class User(MappedBase):
@@ -14,7 +11,7 @@ class User(MappedBase):
     tg_id: Mapped[int] = mapped_column(unique=True, nullable=False)
     username: Mapped[str | None] = mapped_column(nullable=True)
 
-    progress: Mapped["UserProgress"] = relationship(
+    progress: Mapped["UserProgress"] = relationship(  # type: ignore
         back_populates="user", uselist=False
     )
-    questions: Mapped[list["Question"]] = relationship(back_populates="user")
+    questions: Mapped[list["Question"]] = relationship(back_populates="user")  # type: ignore

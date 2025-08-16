@@ -5,15 +5,20 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from db.models.user import User
+from src.api.v1.user.model.user import User
+from src.api.v1.user.model.user_progress import UserProgress
+from src.api.v1.book.model.book import Book
+from src.api.v1.book.model.page import Page
+from src.api.v1.book.model.question import Question
+
 from db.meta import meta
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
 config.set_main_option(
-    "sqlalchemy.url", 
-    f"postgresql+asyncpg://hackaton:sample-pass@localhost/hackaton?async_fallback=True"
+    "sqlalchemy.url",
+    f"postgresql+asyncpg://hackaton:sample-pass@localhost/hackaton?async_fallback=True",
 )
 
 # Interpret the config file for Python logging.
@@ -71,9 +76,7 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
-        context.configure(
-            connection=connection, target_metadata=target_metadata
-        )
+        context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
             context.run_migrations()

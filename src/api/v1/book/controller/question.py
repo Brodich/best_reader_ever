@@ -1,6 +1,6 @@
 from typing import Optional
 from fastapi import APIRouter, Depends
-
+from src.api.v1.book.service.question import question_service
 
 router = APIRouter(
     prefix="/question",
@@ -14,16 +14,28 @@ router = APIRouter(
 )
 async def get_questions(
     page: int,
-    user: Users = Depends(get_current_user),
+    # user: Users = Depends(get_current_user),
 ):
-    return await page_service.get_questions(user, page)
+    return await question_service.get_questions(page)
+
 
 @router.get(
-    "/all",
+    "/{question_id}",
     response_model="",
 )
 async def get_question(
     page: int,
-    user: Users = Depends(get_current_user),
+    # user: Users = Depends(get_current_user),
 ):
-    return await page_service.get_question(user, page)
+    return await question_service.get_question(page)
+
+
+@router.get(
+    "/{question_id}/answer",
+    response_model="",
+)
+async def get_answer(
+    page: int,
+    # user: Users = Depends(get_current_user),
+):
+    return await question_service.get_answer(page)

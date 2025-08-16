@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 
 
-class BookRead(BaseModel):
+class UserRead(BaseModel):
     id: str
-    name: str

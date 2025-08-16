@@ -1,17 +1,36 @@
-import os.path
-from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import BaseModel, Field
-
-base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    project_title: str = Field(alias="PROJECT_TITLE")
-    fastapi_host: str = Field(alias="FASTAPI_HOST")
-    fastapi_port: int = Field(alias="FASTAPI_PORT")
+    PROJECT_TITLE: str
 
-    model_config = SettingsConfigDict(env_file=os.path.join(base_path, ".env"))
+    # fatapi
+    FASTAPI_API_V1_PATH: str = "/api/v1"
+    FASTAPI_TITLE: str = "FastAPI"
+    FASTAPI_VERSION: str = "0.0.1"
+    FASTAPI_DESCRIPTION: str = "Redaify"
+    FASTAPI_DOCS_URL: str = f"/api/v1/docs"
+    FASTAPI_OPENAPI_URL: str | None = f"/api/v1/docs/openapi"
+
+    DB_HOST: str
+    DB_PORT: int
+    DB_USER: str
+    DB_PASS: str
+    DB_NAME: str
+
+    SECRET_KEY: str
+    ALGORITHM: str
+
+    class Config:
+        env_file = f".env"
+
+    @property
+    def database_url(self) -> str:
+        return (
+            f"postgresql+asyncpg://{self.DB_USER}:"
+            f"{self.DB_PASS}@{self.DB_HOST}:"
+            f"{self.DB_PORT}/{self.DB_NAME}"
+        )
 
 
-# print(base_path)
 settings = Settings()

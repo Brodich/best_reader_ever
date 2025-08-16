@@ -1,17 +1,6 @@
-from typing import Optional
-
 from fastapi import APIRouter, Depends
-
-from app.orders.crud.claim import ClaimDAO
-from app.orders.schema.claim import SNewClaim, SProductList, ProductCreate
-
-# from my_storage.claim import MSClaim
-from app.orders.schema.templates import ProductTemplateList
-from app.products.crud.product import ProductsDAO
-from app.auth.services.dependencies import get_current_user
-from app.auth.model.user import Users
-from app.orders.service.claim import claim_service
-
+from src.api.v1.user.schema.user import UserRead
+from src.api.v1.user.service.user import user_service
 
 router = APIRouter(
     prefix="/user",
@@ -21,7 +10,7 @@ router = APIRouter(
 
 @router.get(
     "",
-    response_model="",
+    response_model=UserRead,
 )
-async def get_claims(user: Users = Depends(get_current_user)):
-    return await claim_service.get_claims(user)
+async def get_user():
+    return await user_service.get_user()

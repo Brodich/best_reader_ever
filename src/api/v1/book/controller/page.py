@@ -1,6 +1,6 @@
-from typing import Optional
 from fastapi import APIRouter, Depends
-
+from src.api.v1.book.schema.page import PageRead
+from src.api.v1.book.service.page import page_service
 
 router = APIRouter(
     prefix="/page",
@@ -9,13 +9,20 @@ router = APIRouter(
 
 
 @router.get(
-    "/all",
-    response_model="",
+    "/{book_id}/last",
+    response_model=PageRead,
 )
 async def get_page(
-    page: int,
-    user: Users = Depends(get_current_user),
+    # page: int,
 ):
-    return await page_service.get_page(user, page)
+    return await page_service.get_page()
 
 
+# @router.get(
+#     "/{book_id}",
+#     response_model="",
+# )
+# async def get_page(
+#     page: int,
+# ):
+#     return await page_service.get_page()

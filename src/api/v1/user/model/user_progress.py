@@ -2,7 +2,7 @@ from datetime import datetime
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from api.db.base import MappedBase
+from db.base import MappedBase
 
 
 class UserProgress(MappedBase):
@@ -18,6 +18,6 @@ class UserProgress(MappedBase):
         default=datetime.utcnow, onupdate=datetime.utcnow
     )
 
-    user: Mapped["User"] = relationship(back_populates="progress")
-    book: Mapped["Book"] = relationship()
-    last_page: Mapped["Page"] = relationship()
+    user: Mapped["User"] = relationship(back_populates="progress")  # type: ignore
+    book: Mapped["Book"] = relationship()  # type: ignore
+    last_page: Mapped["Page"] = relationship()  # type: ignore
