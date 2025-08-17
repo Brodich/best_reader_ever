@@ -1,0 +1,108 @@
+2025-08-17 16:58:05,554 - INFO - bot initialized
+2025-08-17 16:59:44,869 - INFO - bot initialized
+2025-08-17 17:05:12,155 - INFO - bot initialized
+2025-08-17 17:11:15,954 - INFO - Bot initialized
+2025-08-17 17:11:48,671 - INFO - Bot initialized
+2025-08-17 17:11:49,007 - INFO - Webhook set up at test.bytecode.su/webhook
+2025-08-17 17:15:12,404 - INFO - Webhook removed
+2025-08-17 17:15:23,139 - INFO - Bot initialized
+2025-08-17 17:15:23,491 - INFO - Webhook set up at test.bytecode.su/webhook
+2025-08-17 17:17:07,376 - INFO - Webhook removed
+2025-08-17 17:17:19,400 - INFO - Bot initialized
+2025-08-17 17:17:19,763 - INFO - Webhook set up at test.bytecode.su/webhook
+2025-08-17 17:18:35,186 - INFO - Webhook removed
+2025-08-17 17:18:53,298 - INFO - Bot initialized
+2025-08-17 17:18:53,623 - INFO - Webhook set up at test.bytecode.su/webhook
+2025-08-17 17:21:30,611 - INFO - Webhook removed
+2025-08-17 17:22:11,821 - __main__ - INFO - Bot initialized successfully
+2025-08-17 17:22:11,824 - __main__ - INFO - Starting server on port 8001
+2025-08-17 17:22:11,889 - __main__ - INFO - Setting up webhook...
+2025-08-17 17:22:12,271 - __main__ - INFO - Webhook info: url='test.bytecode.su/webhook/webhook' has_custom_certificate=False pending_update_count=0 ip_address='37.194.189.75' last_error_date=None last_error_message=None last_synchronization_error_date=None max_connections=40 allowed_updates=['message']
+2025-08-17 17:23:54,680 - __main__ - INFO - Deleting webhook...
+2025-08-17 17:23:55,473 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7f2ab0a29a50>
+2025-08-17 17:23:55,486 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f2ab0bede80>, 1735111.339207847)])']
+connector: <aiohttp.connector.TCPConnector object at 0x7f2ab0a296d0>
+2025-08-17 17:24:12,866 - __main__ - INFO - Bot initialized successfully
+2025-08-17 17:24:12,868 - __main__ - INFO - Starting server on port 8001
+2025-08-17 17:24:12,922 - __main__ - INFO - Setting up webhook...
+2025-08-17 17:24:13,295 - __main__ - INFO - Webhook info: url='test.bytecode.su/webhook/webhook' has_custom_certificate=False pending_update_count=0 ip_address='37.194.189.75' last_error_date=None last_error_message=None last_synchronization_error_date=None max_connections=40 allowed_updates=['message']
+2025-08-17 17:24:28,843 - __main__ - INFO - Deleting webhook...
+2025-08-17 17:24:29,231 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7f53ae34de90>
+2025-08-17 17:24:29,232 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f53ae315e80>, 1735145.500869718)])']
+connector: <aiohttp.connector.TCPConnector object at 0x7f53ae34db10>
+2025-08-17 17:25:12,266 - __main__ - INFO - Bot initialized successfully
+2025-08-17 17:25:12,267 - __main__ - INFO - Starting server on port 8001
+2025-08-17 17:25:12,319 - __main__ - INFO - Setting up webhook...
+2025-08-17 17:25:12,673 - __main__ - INFO - Webhook info: url='test.bytecode.su/webhook/webhook' has_custom_certificate=False pending_update_count=0 ip_address='37.194.189.75' last_error_date=None last_error_message=None last_synchronization_error_date=None max_connections=40 allowed_updates=['message']
+2025-08-17 17:26:11,500 - __main__ - INFO - Deleting webhook...
+2025-08-17 17:26:12,360 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7f3e922420d0>
+2025-08-17 17:26:12,374 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f3e9220d940>, 1735248.177745488)])']
+connector: <aiohttp.connector.TCPConnector object at 0x7f3e92241ed0>
+2025-08-17 17:26:23,317 - __main__ - INFO - Bot initialized successfully
+2025-08-17 17:26:23,318 - __main__ - INFO - Starting server on port 8001
+2025-08-17 17:26:23,376 - __main__ - INFO - Setting up webhook...
+2025-08-17 17:26:23,737 - __main__ - INFO - Webhook info: url='test.bytecode.su/webhook' has_custom_certificate=False pending_update_count=0 ip_address='37.194.189.75' last_error_date=None last_error_message=None last_synchronization_error_date=None max_connections=40 allowed_updates=['message']
+2025-08-17 17:26:50,373 - __main__ - INFO - Deleting webhook...
+2025-08-17 17:26:51,077 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7f93efc1da90>
+2025-08-17 17:26:51,087 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f93efde1e80>, 1735287.038429537)])']
+connector: <aiohttp.connector.TCPConnector object at 0x7f93efc1d410>
+2025-08-17 17:27:04,712 - __main__ - INFO - Bot initialized successfully
+2025-08-17 17:27:04,712 - __main__ - INFO - Starting server on port 8001
+2025-08-17 17:27:04,764 - __main__ - INFO - Setting up webhook...
+2025-08-17 17:27:05,124 - __main__ - INFO - Webhook info: url='test.bytecode.su/webhook' has_custom_certificate=False pending_update_count=0 ip_address='37.194.189.75' last_error_date=None last_error_message=None last_synchronization_error_date=None max_connections=40 allowed_updates=['message']
+2025-08-17 17:27:06,620 - __main__ - INFO - Incoming webhook request
+2025-08-17 17:27:06,761 - aiogram.event - INFO - Update id=587142219 is handled. Duration 128 ms by bot id=8123025910
+2025-08-17 17:51:05,507 - __main__ - INFO - Deleting webhook...
+2025-08-17 17:51:15,649 - __main__ - INFO - Bot initialized successfully
+2025-08-17 17:51:15,650 - __main__ - INFO - Starting server on port 8001
+2025-08-17 17:51:15,703 - __main__ - INFO - Setting up webhook...
+2025-08-17 17:51:16,063 - __main__ - INFO - Webhook info: url='test.bytecode.su/webhook' has_custom_certificate=False pending_update_count=0 ip_address='37.194.189.75' last_error_date=None last_error_message=None last_synchronization_error_date=None max_connections=40 allowed_updates=['message']
+2025-08-17 17:58:16,084 - __main__ - INFO - Deleting webhook...
+2025-08-17 17:58:16,473 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f2890cafa80>, 1737172.744751259)])']
+connector: <aiohttp.connector.TCPConnector object at 0x7f2890cd73d0>
+2025-08-17 17:58:26,414 - __main__ - INFO - Bot initialized successfully
+2025-08-17 17:58:26,415 - __main__ - INFO - Starting server on port 8001
+2025-08-17 17:58:26,462 - __main__ - INFO - Setting up webhook...
+2025-08-17 17:58:26,827 - __main__ - INFO - Webhook info: url='test.bytecode.su/webhook' has_custom_certificate=False pending_update_count=0 ip_address='37.194.189.75' last_error_date=None last_error_message=None last_synchronization_error_date=None max_connections=40 allowed_updates=['message']
+2025-08-17 17:58:53,077 - __main__ - INFO - Deleting webhook...
+2025-08-17 17:58:53,654 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7f1d269add50>
+2025-08-17 17:58:53,655 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f1d26981ef0>, 1737209.740900063)])']
+connector: <aiohttp.connector.TCPConnector object at 0x7f1d26be87d0>
+2025-08-17 17:59:07,017 - __main__ - INFO - Bot initialized successfully
+2025-08-17 17:59:07,018 - __main__ - INFO - Starting server on port 8001
+2025-08-17 17:59:07,066 - __main__ - INFO - Setting up webhook...
+2025-08-17 17:59:07,421 - __main__ - INFO - Webhook info: url='test.bytecode.su/webhook' has_custom_certificate=False pending_update_count=0 ip_address='37.194.189.75' last_error_date=None last_error_message=None last_synchronization_error_date=None max_connections=40 allowed_updates=['message']
+2025-08-17 17:59:52,895 - __main__ - INFO - Incoming webhook request
+2025-08-17 17:59:53,137 - httpx - INFO - HTTP Request: POST https://prototype.bytecode.su/api/v1/user "HTTP/1.1 500 Internal Server Error"
+2025-08-17 17:59:53,465 - aiogram.event - INFO - Update id=587142220 is handled. Duration 568 ms by bot id=8123025910
+2025-08-17 18:00:09,621 - __main__ - INFO - Deleting webhook...
+2025-08-17 18:00:26,671 - __main__ - INFO - Bot initialized successfully
+2025-08-17 18:00:26,672 - __main__ - INFO - Starting server on port 8001
+2025-08-17 18:00:26,722 - __main__ - INFO - Setting up webhook...
+2025-08-17 18:00:27,084 - __main__ - INFO - Webhook info: url='test.bytecode.su/webhook' has_custom_certificate=False pending_update_count=0 ip_address='37.194.189.75' last_error_date=None last_error_message=None last_synchronization_error_date=None max_connections=40 allowed_updates=['message']
+2025-08-17 18:00:36,828 - __main__ - INFO - Incoming webhook request
+2025-08-17 18:00:37,434 - httpx - INFO - HTTP Request: POST https://prototype.bytecode.su/api/v1/user "HTTP/1.1 500 Internal Server Error"
+2025-08-17 18:00:37,594 - aiogram.event - INFO - Update id=587142221 is handled. Duration 761 ms by bot id=8123025910
+2025-08-17 18:45:50,134 - __main__ - INFO - Incoming webhook request
+2025-08-17 18:45:50,376 - httpx - INFO - HTTP Request: POST https://prototype.bytecode.su/api/v1/user "HTTP/1.1 502 Bad Gateway"
+2025-08-17 18:45:50,687 - aiogram.event - INFO - Update id=587142222 is handled. Duration 550 ms by bot id=8123025910
+2025-08-17 18:45:52,796 - __main__ - INFO - Incoming webhook request
+2025-08-17 18:45:52,992 - httpx - INFO - HTTP Request: POST https://prototype.bytecode.su/api/v1/user "HTTP/1.1 502 Bad Gateway"
+2025-08-17 18:45:53,122 - aiogram.event - INFO - Update id=587142223 is handled. Duration 322 ms by bot id=8123025910
+2025-08-17 18:46:58,523 - __main__ - INFO - Incoming webhook request
+2025-08-17 18:46:59,226 - httpx - INFO - HTTP Request: POST https://prototype.bytecode.su/api/v1/user "HTTP/1.1 200 OK"
+2025-08-17 18:46:59,503 - aiogram.event - INFO - Update id=587142224 is handled. Duration 978 ms by bot id=8123025910
+2025-08-17 18:47:07,184 - __main__ - INFO - Incoming webhook request
+2025-08-17 18:47:07,362 - httpx - INFO - HTTP Request: POST https://prototype.bytecode.su/api/v1/user "HTTP/1.1 500 Internal Server Error"
+2025-08-17 18:47:07,471 - aiogram.event - INFO - Update id=587142225 is handled. Duration 283 ms by bot id=8123025910
