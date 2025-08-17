@@ -5,6 +5,11 @@ import re
 
 from gigachat import GigaChat
 from gigachat.models import Chat, Messages, MessagesRole
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+GIGA_API = os.getenv("GIGA_API")
 
 PROMT = """
 Ты — генератор карточек для интервального повторения. 
@@ -38,7 +43,7 @@ PROMT = """
 
 giga = GigaChat(
    model="GigaChat",
-   credentials="NDlmM2EyOGUtYzIxNy00ZWY4LTk1NjktNmI5ZGEwZTg4MGNmOjNjNzhlMGYyLTFhMWItNDI0NS04MTQ0LTg2Y2ZjM2YxMDQ1ZQ==",
+   credentials=GIGA_API,
    scope="GIGACHAT_API_PERS",
    verify_ssl_certs=False
 )
