@@ -1,4 +1,5 @@
-from uuid import UUID
+import uuid
+from sqlalchemy import UUID
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -11,11 +12,17 @@ from src.db.postgres import MappedBase
 class Book(MappedBase):
     __tablename__ = "books"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[UUID] = mapped_column(UUID, primary_key=True, default=uuid.uuid4)
     title: Mapped[str] = mapped_column(nullable=False)
     author: Mapped[str | None] = mapped_column(nullable=True)
     user_id: Mapped[UUID] = mapped_column(ForeignKey("users.id"), nullable=False)
 
-    user: Mapped["User"] = relationship(back_populates="books")
-    pages: Mapped[list[Page]] = relationship(back_populates="book")
-    questions: Mapped[list[Question]] = relationship(back_populates="book")
+    user: Mapped["User"] = relationship(back_populates="books")  # type: ignore
+    pages: Mapped[list[Page]] = relationship(
+        back_populates="book",
+        cascade="all, delete-orphan",
+    )
+    questions: Mapped[list[Question]] = relationship(
+        back_populates="book",
+        cascade="all, delete-orphan",
+    )

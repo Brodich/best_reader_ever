@@ -21,6 +21,9 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     ALGORITHM: str
 
+    PAGE_LINES: int
+    PAGE_CHARS: int
+
     class Config:
         env_file = f".env"
 

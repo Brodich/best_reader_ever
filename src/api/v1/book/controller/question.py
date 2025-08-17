@@ -30,12 +30,12 @@ async def get_question(
     return await question_service.get_question(page)
 
 
-@router.get(
-    "/{question_id}/answer",
-    response_model="",
-)
-async def get_answer(
-    page: int,
-    # user: Users = Depends(get_current_user),
-):
-    return await question_service.get_answer(page)
+# @router.get(
+#     "/{question_id}/answer",
+#     response_model="",
+# )
+# async def get_answer(
+#     page: int,
+#     # user: Users = Depends(get_current_user),
+# ):
+#     return await question_service.get_answer(page)

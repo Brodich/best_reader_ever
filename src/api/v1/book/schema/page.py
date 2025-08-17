@@ -1,4 +1,5 @@
 from typing import List
+from uuid import UUID
 from pydantic import BaseModel
 
 
@@ -8,7 +9,7 @@ class Pagination(BaseModel):
 
 
 class PageRead(BaseModel):
-    id: str
-    name: str
-    content: List[str]
-    pagination: Pagination
+    id: UUID
+    number: int
+    text: List[str]
+    # pagination: Pagination

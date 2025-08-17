@@ -10,14 +10,14 @@ router = APIRouter(
 
 
 @router.get(
-    "",
-    response_model=UserRead,
+    "/{tg_id}",
+    # response_model=UserRead,
 )
 async def get_user(
     session: CurrentSession,
-    user_id: str = "test",
+    tg_id: str,
 ):
-    return await UserService(session).get_user(user_id)
+    return await UserService(session).get_user(tg_id)
 
 
 @router.post(

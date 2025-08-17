@@ -1,6 +1,7 @@
+from uuid import UUID
 from pydantic import BaseModel
 
 
 class BookRead(BaseModel):
-    id: str
-    name: str
+    id: UUID
+    title: str
