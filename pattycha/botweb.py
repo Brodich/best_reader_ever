@@ -11,7 +11,16 @@ import uvicorn
 from contextlib import asynccontextmanager
 import asyncio
 from bot_tools.reg_user import register_user
-
+from gigachat import GigaChat
+from gigachat.models import Chat, Messages, MessagesRole
+from pydantic import BaseModel
+from fastapi import Body
+from pg import test_db_connection
+class QuestionRequest(BaseModel):
+    user_promt: list[str]
+    user_id: str
+    book_id: str
+    page_id: str
 @dataclass
 class TelegramBot:
     filename: str = 'config.ini'
@@ -20,11 +29,14 @@ class TelegramBot:
         """Initialize bot client and configure logging."""
         self._setup_config()
         self._setup_logging()
-        
+        self.creds = 0
+        self._setup_gigachat()
         self.bot = Bot(token=self.token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
         self.dp = Dispatcher()
-        self._register_handlers()
         
+        self._register_handlers()
+
+
         self.app = FastAPI(
             title="Telegram Bot Webhook",
             lifespan=self.lifespan
@@ -32,6 +44,22 @@ class TelegramBot:
         self._setup_routes()
         
         self.logger.info("Bot initialized successfully")
+
+    def _setup_gigachat(self):
+        with open('prompt.txt') as f:
+            self.PROMT = f.read()
+        gcreds = [
+                 'Mzg2OGFkYjEtYWQzMS00ZmU4LTlhYTMtYmM3MGRhZDljNGI2OjI5OWM3OWE4LTI1OGYtNDE2NS04M2RiLTE2OGRhYjk2ZjgzYw==',
+                 'MzYzMjEyNzktMGUxYy00ZTcyLWEwODYtM2NlYzEwYzc5ZTA4OmZmMDc1ZTU4LTQwZGQtNGZlNS1hOGE3LWFlMGE4ZjM4MWI3ZQ==',
+                 'NDlmM2EyOGUtYzIxNy00ZWY4LTk1NjktNmI5ZGEwZTg4MGNmOjUxMjk4NWFhLTAyZDgtNGJiOS04N2Y3LTlmZDUyMTYzNzA3NQ==',
+                 'NWNlNjJiNTctZDNhYi00MzNhLWJhOWEtYmU1YzYxZDAzZjY1OmMxMzNmOTg5LWZjZmItNGZiNS04ZWNiLTNlMWM4ZGFiZDk2OQ=='
+        ]
+        self.giga = GigaChat(
+            model="GigaChat",
+            credentials= gcreds[self.creds],
+            scope="GIGACHAT_API_PERS",
+            verify_ssl_certs=False
+            )
 
     def _setup_config(self) -> None:
         """Read configuration from INI file."""
@@ -68,9 +96,9 @@ class TelegramBot:
             api_response = await register_user(str(user.id), user.first_name)
             print(user.id)
             if api_response:
-                await message.answer("🚀 Пользователь зарегистрирован")
+                await message.answer("🚀 Пользователь зарегистрирован, пройдите в БИО бота и нажмите open app")
             else:
-                await message.answer("🚀 Пользователь не зарегистрирован")
+                await message.answer("Пользователь уже зарегистрирован, для запуска приложения перейдите в бот инфо и нажмите open app")
                 
 
     def _setup_routes(self) -> None:
@@ -91,7 +119,48 @@ class TelegramBot:
         async def send(id:int, text:str):
             await self.bot.send_message(chat_id=id, text=text)
             return {"status": "ok"}
+        
+        @self.app.post("/fetch")
+        async def fetch_questions_giga(request_data: QuestionRequest):
+            try:
+                A = 1/0
+                payload = Chat(
+                    messages=[
+                        Messages(
+                            role=MessagesRole.SYSTEM,
+                            content=self.PROMT
+                        ),
+                        Messages(
+                            role=MessagesRole.USER,
+                            content='\n'.join(request_data.user_promt)
+                        ),
+                    ]
+                )
+                response = self.giga.chat(payload)
+                message_content = response.choices[0].message.content  
+                cards = []
+                lines = [line.strip() for line in message_content.splitlines() if line.strip()]
 
+                for i in range(0, len(lines), 2):
+                    question_line = lines[i]
+                    answer_line = lines[i + 1]
+
+                    question = question_line.replace("Вопрос: ", "").strip()
+                    answer = answer_line.replace("Ответ: ", "").strip()
+
+                    cards.append({"question": question, "answer": answer})
+                for i,j in cards.items():
+                    await test_db_connection(request_data.user_id, request_data.book_id, request_data.page_id, i, j)
+                return cards
+            except:
+                if self.creds<3:
+                    self.creds+=1
+                    self._setup_gigachat()
+                    await fetch_questions_giga(request_data)
+                else:
+                    await send(246259983, 'ТОКЕНЫ ВСЁ ХАНА, ПИПЕЦ')
+                    await send(373914836, 'ТОКЕНЫ ВСЁ ХАНА, ПИПЕЦ')
+                    
     @asynccontextmanager
     async def lifespan(self, app: FastAPI):
         """Async context manager for FastAPI lifespan."""
